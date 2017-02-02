@@ -4,6 +4,7 @@ int	b = (int)(Math.random()*256);
 boolean r1 = true;
 boolean g1 = true;
 boolean b1= true;
+int len = 160;
 
 public void setup()
 {
@@ -12,12 +13,12 @@ public void setup()
 
 public void draw()
 {
-	fill(r, g, b, 75);
+	fill(r, g, b);
 	if(r1 == true) {
-		r += (int)(Math.random()*5);
+		r += (int)(Math.random()*3);
 	}
 	else {
-		r -= (int)(Math.random()*5);
+		r -= (int)(Math.random()*3);
 	}
 	if (r > 254) {
 		r1 = false;
@@ -26,10 +27,10 @@ public void draw()
 		r1 = true;
 	}
 	if(g1 == true) {
-		g += (int)(Math.random()*5);
+		g += (int)(Math.random()*3);
 	}
 	else {
-		g -= (int)(Math.random()*5);
+		g -= (int)(Math.random()*3);
 	}
 	if (g > 254) {
 		g1 = false;
@@ -38,10 +39,10 @@ public void draw()
 		g1 = true;
 	}
 	if(b1 == true) {
-		b += (int)(Math.random()*5);
+		b += (int)(Math.random()*3);
 	}
 	else {
-		b -= (int)(Math.random()*5);
+		b -= (int)(Math.random()*3);
 	}
 	if (b > 254) {
 		b1 = false;
@@ -49,10 +50,18 @@ public void draw()
 	if (b < 1) {
 		b1 = true;
 	}
-	background(255);
+	background(0);
 	stroke(255);
-	fractal(170, 170, 160);
+	fractal(170, 170, len);
+}
 
+public void keyPressed() {
+	if(keyCode == UP) {
+		len+=5;
+	}
+	if(keyCode == DOWN) {
+		len-=5;
+	}
 }
 
 public void fractal(int x, int y, int len) 
