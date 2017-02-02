@@ -9,6 +9,7 @@ int len = 160;
 public void setup()
 {
 	size(500, 500);
+	rectMode(CENTER);
 }
 
 public void draw()
@@ -52,7 +53,7 @@ public void draw()
 	}
 	background(0);
 	stroke(255);
-	fractal(170, 170, len);
+	fractal(250, 250, len);
 }
 
 public void keyPressed() {
@@ -68,9 +69,9 @@ public void fractal(int x, int y, int len)
 {
 	rect(x, y, len, len);
 	if (len > 10) {
-		fractal(x+len, y+len/4, len/2);
-		fractal(x-len/2, y+len/4, len/2);
-		fractal(x+len/4, y-len/2, len/2);
-		fractal(x+len/4, y+len, len/2);
+		fractal(x, y+len*3/4, len/2);
+		fractal(x, y-len*3/4, len/2);
+		fractal(x+len*3/4, y, len/2);
+		fractal(x-len*3/4, y, len/2);
 	}
 }
