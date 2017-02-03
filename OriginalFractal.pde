@@ -60,8 +60,10 @@ public void keyPressed() {
 	if(keyCode == UP) {
 		len+=5;
 	}
-	if(keyCode == DOWN) {
-		len-=5;
+	if (len > 0) {
+		if(keyCode == DOWN) {
+			len-=5;
+		}
 	}
 }
 
